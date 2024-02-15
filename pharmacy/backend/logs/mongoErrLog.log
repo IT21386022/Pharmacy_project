@@ -1,0 +1,9 @@
+20230924	09:40:08	e8efdaef-8bb1-4dcb-b1fe-c8fcf497456a	undefined: undefined	undefined	undefined
+20230926	22:00:57	33174445-2371-4e5f-98c5-5aaa35f939af	undefined: undefined	undefined	undefined
+20230926	22:17:17	f1ca6f3f-e9dc-49bf-8250-b8c73c47aded	undefined: undefined	undefined	undefined
+20230926	22:27:22	4d0abfc3-7531-41b5-a0ca-c22c501968af	undefined: undefined	undefined	undefined
+20230926	22:28:13	8c62bfe8-5f5f-42de-ae5d-85014ca17379	undefined: undefined	undefined	undefined
+20231014	08:51:42	a109e59a-2f66-4414-995a-a71a24e4c684	undefined: ETIMEOUT	querySrv	_mongodb._tcp.fooddelivery.dxqolfl.mongodb.net
+20231015	09:04:09	617b3733-b82d-4ec2-ab15-b94839791d75	undefined: ECONNREFUSED	querySrv	_mongodb._tcp.fooddelivery.dxqolfl.mongodb.net
+20231015	09:06:35	a74cd92a-9211-4a41-8eb8-f02d85297ba2	undefined: ECONNREFUSED	querySrv	_mongodb._tcp.fooddelivery.dxqolfl.mongodb.net
+20231015	15:19:01	9ea25dab-82ae-4a4e-8bda-61fa84e3cfe0	undefined: ECONNREFUSED	querySrv	_mongodb._tcp.cluster0.fsx5tlz.mongodb.net
