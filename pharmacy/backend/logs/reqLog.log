@@ -2422,3 +2422,11 @@
 20240221	09:15:05	63fccd49-28bb-4196-99a0-73cb9b924270	POST	/users/login	http://localhost:3000
 20240221	09:15:08	fbbd1e79-bea4-4c35-80de-a946a908c272	GET	/customer/	http://localhost:3000
 20240221	09:15:09	f7abc5bb-938a-4596-9645-ef253233eab3	GET	/customer/	http://localhost:3000
+20240221	09:20:15	1ce98ebb-9efa-4343-b7e7-c25699bf24ca	OPTIONS	/users/register	http://localhost:3000
+20240221	09:20:15	2a259372-027c-4d90-a83c-fdb2e3d97175	POST	/users/register	http://localhost:3000
+20240221	09:54:01	e2564e48-664b-4626-a0c6-e1fd20aeded5	OPTIONS	/users/register	http://localhost:3000
+20240221	09:54:01	5c3e965c-29ea-4242-88bf-606d84c7f4b7	POST	/users/register	http://localhost:3000
+20240221	09:54:20	81d0cf37-6556-484e-a6e6-b727bb66b96e	OPTIONS	/users/login	http://localhost:3000
+20240221	09:54:20	b7ca1d4a-96d6-4fa0-a801-b9d3e6fda437	POST	/users/login	http://localhost:3000
+20240221	09:54:25	344f39da-7953-43c6-b18e-d37da7722ad8	GET	/customer/	http://localhost:3000
+20240221	09:54:25	5f7c8954-5a58-4067-9847-538dea86c5e5	GET	/customer/	http://localhost:3000

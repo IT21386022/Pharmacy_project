@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom'; // Import Link from react-router-dom
+import {  toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -11,6 +13,16 @@ const Register = () => {
     confirmPassword: '',
     role: 'Customer'
   });
+
+  const showSuccessMessage = (message) => {
+    toast.success(
+      <SuccessMessage>
+        <SuccessIcon className="material-icons"></SuccessIcon>
+        {message}
+      </SuccessMessage>,
+      { autoClose: 2000 }
+    );
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -25,6 +37,7 @@ const Register = () => {
     try {
       const response = await axios.post('http://localhost:8072/users/register', formData);
       console.log(response.data);
+      showSuccessMessage("Record saved successfully!");
       // Handle successful registration, such as displaying a success message or redirecting to login
     } catch (error) {
       console.error('Registration error:', error);
@@ -136,6 +149,15 @@ const Button = styled.button`
   cursor: pointer;
 `;
 
-// Styled components definitions...
+const SuccessMessage = styled("div")`
+  display: flex;
+  align-items: center;
+  color: #28a745;
+`;
+
+const SuccessIcon = styled("span")`
+  font-size: 24px;
+  margin-right: 10px;
+`;
 
 export default Register;
