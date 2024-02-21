@@ -11,11 +11,13 @@ import CMedication from "../pages/CMedication";
 import Cashier from "../pages/Cashier";
 import Manager from "../pages/Manager";
 import Owner from "../pages/Owner";
+import Register from "../pages/Register";
 
 export default function PharmacyRouter() {
   return (
     <Routes>
-      <Route path="/" element={<Login/>}/>
+      <Route path="/" element={<Register/>}/>
+      <Route path="/login" element={<Login/>}/>
       <Route path="/customer" element={<Customer />}/>
       <Route path="/medication" element={<Medication/>}/>
       <Route path="/mcustomer" element={<MCustomer/>}/>

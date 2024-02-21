@@ -1,14 +1,17 @@
+// Login.js
+
 import React, { useState } from 'react';
+import axios from 'axios';
 import styled from 'styled-components';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { jwtDecode } from 'jwt-decode';
+
+
 
 const Login = () => {
   const [formData, setFormData] = useState({
     username: '',
     password: '',
-    isAuthenticated: false // Flag to track authentication status
   });
-  const navigate = useNavigate(); // Initialize useNavigate
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -18,27 +21,35 @@ const Login = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = async (e) => {
+  e.preventDefault();
+  try {
+    const response = await axios.post('http://localhost:8072/users/login', formData);
+    const token = response.data.token;
+    
+    // Decode the JWT token to extract user data
+    const decodedToken = jwtDecode(token);
+    const userRole = decodedToken.role;
 
-    // Get the entered username and password
-    const { username, password } = formData;
-
-    // Check user role based on username and password
-    if (username === 'owner' && password === 'owner123') {
-      setFormData({ ...formData, isAuthenticated: true }); // Set authentication flag
-      navigate('/owner');
-    } else if (username === 'manager' && password === 'manager123') {
-      setFormData({ ...formData, isAuthenticated: true }); // Set authentication flag
-      navigate('/manager');
-    } else if (username === 'cashier' && password === 'cashier123') {
-      setFormData({ ...formData, isAuthenticated: true }); // Set authentication flag
-      navigate('/cashier');
-    } else {
-      // Invalid credentials, handle error or show error message
-      console.error('Invalid username or password');
+    // Redirect logic based on user role
+    switch (userRole) {
+      case 'Owner':
+        window.location.href = '/owner'; // Redirect to owner page
+        break;
+      case 'Manager':
+        window.location.href = '/manager'; // Redirect to manager page
+        break;
+      case 'Cashier':
+        window.location.href = '/cashier'; // Redirect to cashier page
+        break;
+      default:
+        console.log('Unknown role');
+        break;
     }
-  };
+  } catch (error) {
+    console.error('Login error:', error);
+  }
+};
 
   return (
     <Container>
@@ -104,5 +115,6 @@ const Button = styled.button`
   border-radius: 5px;
   cursor: pointer;
 `;
+
 
 export default Login;
