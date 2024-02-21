@@ -47,7 +47,9 @@ const Medication = ({ userRole }) => {
 
   const getFetchData = async () => {
     try {
-      const medications = await axios.get("http://localhost:5000/getMedication");
+      const medications = await axios.get(
+        "http://localhost:5000/getMedication"
+      );
       setDataList(medications.data.medications);
     } catch (error) {
       console.error("Error fetching medication data:", error);
@@ -173,9 +175,8 @@ const Medication = ({ userRole }) => {
               <thead>
                 <TableHeadTr>
                   <TableHeadTableRowTableHead>Name</TableHeadTableRowTableHead>
-                  <TableHeadTableRowTableHead>Description</TableHeadTableRowTableHead>
                   <TableHeadTableRowTableHead>
-                    Volume
+                    Description
                   </TableHeadTableRowTableHead>
                   <TableHeadTableRowTableHead>
                     Quantity
@@ -190,7 +191,6 @@ const Medication = ({ userRole }) => {
                   <tr key={medication.id}>
                     <TableBodyTd>{medication.name}</TableBodyTd>
                     <TableBodyTd>{medication.description}</TableBodyTd>
-                    <TableBodyTd>{medication.volume}</TableBodyTd>
                     <TableBodyTd>{medication.quantity}</TableBodyTd>
                     <TableBodyTd>
                       {!medication.isDeleted ? (
@@ -198,10 +198,14 @@ const Medication = ({ userRole }) => {
                           <BtnEdit onClick={() => handleEdit(medication)}>
                             <EditIcon />
                           </BtnEdit>
-                          <BtnDelete onClick={() => handleDelete(medication.id)}>
+                          <BtnDelete
+                            onClick={() => handleDelete(medication.id)}
+                          >
                             <DeleteIcon />
                           </BtnDelete>
-                          <BtnDelete onClick={() => handleSoftDelete(medication.id)}>
+                          <BtnDelete
+                            onClick={() => handleSoftDelete(medication.id)}
+                          >
                             <GolfCourseSharpIcon />
                           </BtnDelete>
                         </>
@@ -224,7 +228,7 @@ const Medication = ({ userRole }) => {
 
 const ContainerDiv = styled("div")`
   padding: 10px;
-  max-width: 1200px;
+  max-width: 945px;
   margin: 25px auto;
 
   @media (max-width: 768px) {
@@ -238,41 +242,67 @@ const AddButton = styled("button")`
   font-size: 18px;
   border-radius: 5px;
   cursor: pointer;
-  background: rgb(238, 126, 126);
+  background: rgb(238, 126, 56);
   color: white;
 `;
 
 const ContainerForTable = styled("div")`
-  margin-top: 20px;
+  margin-top: 50px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
 `;
 
 const TableHeadTr = styled("tr")`
-  background-color: #f2f2f2;
+  border: 1px solid rgb(238, 126, 56);
 `;
 
 const TableHeadTableRowTableHead = styled("th")`
-  padding: 12px;
-  text-align: left;
+  min-width: 200px;
+  border: 1px solid rgb(238, 126, 56);
+  padding: 15px;
+  border-radius: 0;
+  font-weight: 18px;
+  color: rgb(238, 126, 56);
+  justify-content: center;
+  align-content: center;
 `;
 
 const TableBodyTd = styled("td")`
-  padding: 8px;
+  min-width: 200px;
+  padding: 7px;
+  border: 1px solid rgb(238, 126, 56);
+  border-radius: 5px;
+  justify-content: center;
+  align-content: center;
 `;
 
 const BtnEdit = styled("button")`
-  background-color: #4caf50;
-  color: white;
-  border: none;
-  cursor: pointer;
-  margin-right: 5px;
+  font-size: 16px;
+  padding: 5px 10px;
+  margin: 0px 10px;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgb(238, 126, 56);
 `;
 
 const BtnDelete = styled("button")`
-  background-color: #f44336;
-  color: white;
-  border: none;
-  cursor: pointer;
-  margin-right: 5px;
+  font-size: 16px;
+  padding: 5px 10px;
+  margin: 0px 10px;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgb(238, 126, 56);
+`;
+
+const SuccessMessage = styled("div")`
+  display: flex;
+  align-items: center;
+  color: #28a745;
+`;
+
+const SuccessIcon = styled("span")`
+  font-size: 24px;
+  margin-right: 10px;
 `;
 
 export default Medication;

@@ -1,8 +1,6 @@
 import React from "react";
 import { MdClose } from "react-icons/md";
-import styled from 'styled-components'
-
-
+import styled from "styled-components";
 
 const formCustomer = ({
   handleSubmit,
@@ -49,21 +47,6 @@ const formCustomer = ({
         </FormInputContainer>
 
         <FormInputContainer>
-          <FormLabels htmlFor="volume">Volume : </FormLabels>
-          <br></br>
-          <FormInputs
-            type="text"
-            id="volume"
-            name="volume"
-            onChange={handleOnChange}
-            value={rest.volume}
-            required
-            title="Please enter a valid email address"
-          />
-          <br></br>
-        </FormInputContainer>
-
-        <FormInputContainer>
           <FormLabels htmlFor="quantity">Quantity : </FormLabels>
           <br></br>
           <FormInputs
@@ -84,7 +67,7 @@ const formCustomer = ({
   );
 };
 
-const AddContainer = styled('div')`
+const AddContainer = styled("div")`
   position: absolute;
   background-color: rgba(0, 0, 0, 0.2);
   left: 0;
@@ -98,7 +81,7 @@ const AddContainer = styled('div')`
   margin-top: 20px;
 `;
 
-const FormContainer = styled('form')`
+const FormContainer = styled("form")`
   width: 400px;
   background-color: white;
   display: flex;
@@ -111,11 +94,11 @@ const FormContainer = styled('form')`
   border-radius: 5px;
 `;
 
-const FormLabels = styled('label')`
+const FormLabels = styled("label")`
   font-size: 1rem;
 `;
 
-const FormInputs = styled('input')`
+const FormInputs = styled("input")`
   font-size: 1rem;
   padding: 5px 15px;
   margin-right: 5px;
@@ -129,7 +112,7 @@ const FormInputContainer = styled.div`
   position: relative;
 `;
 
-const FormButton = styled('button')`
+const FormButton = styled("button")`
   border: none;
   padding: 7px 15px;
   font-size: 18px;
@@ -139,10 +122,10 @@ const FormButton = styled('button')`
   color: white;
   font-weight: 500;
   margin-top: 20px;
-  width: 325px;
+  width: 355px;
 `;
 
-const CloseButton = styled('div')`
+const CloseButton = styled("div")`
   margin-left: auto;
   font-size: 1.2rem;
   width: 20px;
@@ -154,5 +137,4 @@ const CloseButton = styled('div')`
   cursor: pointer;
 `;
 
-export default  formCustomer;
-
+export default formCustomer;

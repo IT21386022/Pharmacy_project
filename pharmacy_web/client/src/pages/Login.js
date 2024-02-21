@@ -24,7 +24,18 @@ const Login = () => {
         formData
       );
       console.log(response.data);
-      // Redirect logic based on response data
+      const { user } = response.data;
+      // Redirect logic based on user role
+      if (user.role === "Owner") {
+        window.location.href = "/owner";
+      } else if (user.role === "Manager") {
+        window.location.href = "/manager";
+      } else if (user.role === "Cashier") {
+        window.location.href = "/cashier";
+      } else {
+        // Redirect to a default route if role is not recognized
+        window.location.href = "/default";
+      }
     } catch (error) {
       console.error("Login error:", error);
     }
@@ -78,18 +89,18 @@ const Form = styled.form`
 `;
 
 const Input = styled.input`
-  width: 100%;
+  width: 92%;
   padding: 10px;
   margin-bottom: 20px;
-  border: 1px solid #ccc;
+  border: 1px solid rgb(238, 126, 56);
   border-radius: 5px;
 `;
 
 const Button = styled.button`
   width: 100%;
   padding: 10px;
-  background-color: #007bff;
-  color: #fff;
+  background: rgb(238, 126, 56);
+  color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;

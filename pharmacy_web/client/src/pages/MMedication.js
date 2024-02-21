@@ -1,6 +1,6 @@
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
-import GolfCourseSharpIcon from '@mui/icons-material/GolfCourseSharp';
+import GolfCourseSharpIcon from "@mui/icons-material/GolfCourseSharp";
 import { Paper, TableContainer } from "@mui/material";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
@@ -47,7 +47,9 @@ const MMedication = ({ userRole }) => {
 
   const getFetchData = async () => {
     try {
-      const medications = await axios.get("http://localhost:5000/getMedication");
+      const medications = await axios.get(
+        "http://localhost:5000/getMedication"
+      );
       setDataList(medications.data.medications);
     } catch (error) {
       console.error("Error fetching medication data:", error);
@@ -127,11 +129,6 @@ const MMedication = ({ userRole }) => {
     }
   };
 
-  
-
-
-
-  
   return (
     <>
       <ToastContainer
@@ -157,7 +154,6 @@ const MMedication = ({ userRole }) => {
             handleclose={() => setAddSection(false)}
             rest={formData}
             isSubmitting={isSubmitting}
-            
           />
         )}
 
@@ -176,9 +172,8 @@ const MMedication = ({ userRole }) => {
               <thead>
                 <TableHeadTr>
                   <TableHeadTableRowTableHead>Name</TableHeadTableRowTableHead>
-                  <TableHeadTableRowTableHead>Description</TableHeadTableRowTableHead>
                   <TableHeadTableRowTableHead>
-                    Volume
+                    Description
                   </TableHeadTableRowTableHead>
                   <TableHeadTableRowTableHead>
                     Quantity
@@ -190,30 +185,31 @@ const MMedication = ({ userRole }) => {
               </thead>
               <tbody>
                 {dataList.map((customer) => (
-                <tr key={customer._id}>
+                  <tr key={customer._id}>
                     <TableBodyTd>{customer.name}</TableBodyTd>
                     <TableBodyTd>{customer.description}</TableBodyTd>
-                    <TableBodyTd>{customer.volume}</TableBodyTd>
                     <TableBodyTd>{customer.quantity}</TableBodyTd>
                     <TableBodyTd>
-            {!customer.softDeleted ? (
-              <>
-                <BtnEdit onClick={() => handleEdit(customer)}>
-                  <EditIcon />
-                </BtnEdit>
-                <BtnDelete onClick={() => handleSoftDelete(customer._id)}>
-                  <GolfCourseSharpIcon />
-                </BtnDelete>
-              </>
-            ) : (
-              <BtnEdit onClick={() => handleRestore(customer._id)}>
-                Restore
-              </BtnEdit>
-            )}
-          </TableBodyTd>
-                </tr>
-            ))}
-        </tbody>
+                      {!customer.softDeleted ? (
+                        <>
+                          <BtnEdit onClick={() => handleEdit(customer)}>
+                            <EditIcon />
+                          </BtnEdit>
+                          <BtnDelete
+                            onClick={() => handleSoftDelete(customer._id)}
+                          >
+                            <GolfCourseSharpIcon />
+                          </BtnDelete>
+                        </>
+                      ) : (
+                        <BtnEdit onClick={() => handleRestore(customer._id)}>
+                          Restore
+                        </BtnEdit>
+                      )}
+                    </TableBodyTd>
+                  </tr>
+                ))}
+              </tbody>
             </table>
           </TableContainer>
         </ContainerForTable>
@@ -224,15 +220,14 @@ const MMedication = ({ userRole }) => {
 
 const ContainerDiv = styled("div")`
   padding: 10px;
-  /* background-color: red; */
-  max-width: 1200px;
-  /* margin: 50px auto; */
+  max-width: 945px;
   margin: 25px auto;
 
   @media (max-width: 768px) {
     padding: 5px;
   }
 `;
+
 const AddButton = styled("button")`
   border: none;
   padding: 7px 15px;
@@ -241,28 +236,15 @@ const AddButton = styled("button")`
   cursor: pointer;
   background: rgb(238, 126, 56);
   color: white;
-  padding: 24px 24px 24px 24px;
-
-  // Media query for smaller screens
-  @media (max-width: 768px) {
-    width: 100%; // Make it full-width on smaller screens
-    margin-left: 0; // Remove left margin on smaller screens
-  }
 `;
 
 const ContainerForTable = styled("div")`
   margin-top: 50px;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
-
-  // Media query for smaller screens
-  @media (max-width: 768px) {
-    margin-top: 20px;
-  }
 `;
 
 const TableHeadTr = styled("tr")`
-  /* background-color: rgb(238, 126, 56); */
   border: 1px solid rgb(238, 126, 56);
 `;
 
