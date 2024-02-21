@@ -2401,3 +2401,6 @@
 20240215	11:50:44	e7d8a5a1-8b76-458e-ab3a-e9f963da645e	GET	/customer/	http://localhost:3000
 20240215	13:05:29	d5946dd0-a118-47b2-859a-155403e729ae	GET	/customer/	http://localhost:3000
 20240215	13:05:32	072bee0f-908a-4c88-89d7-5d97da13e03f	GET	/customer/	http://localhost:3000
+20240221	08:11:59	48d3abde-8ae3-4c94-b93c-8cc674383e21	POST	/users/register	undefined
+20240221	08:12:31	f5cb7b11-8e84-45e2-9df2-1246f9dd148e	POST	/users/login	undefined
+20240221	08:12:43	5a3742cd-3a38-4fe1-b96e-02f61f0f1654	POST	/users/login	undefined

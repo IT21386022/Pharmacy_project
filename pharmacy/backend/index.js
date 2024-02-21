@@ -47,8 +47,9 @@ const medicationRoute = require("./routes/MedicationRoute.js");
 app.use("/medication",medicationRoute);
 
 // Routes
-const authRoutes = require("./routes/UserRoutes");
-app.use("/auth", authRoutes);
+const userRoutes = require('./routes/userRoutes');
+app.use('/users', userRoutes);
+
 
 // Protected route example
 app.get("/protected", authenticate, (req, res) => {
